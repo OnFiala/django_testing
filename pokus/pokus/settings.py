@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pokus',
     'home',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,10 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = '/home/'     # kam se přesměruje po přihlášení
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 
 WSGI_APPLICATION = 'pokus.wsgi.application'
 

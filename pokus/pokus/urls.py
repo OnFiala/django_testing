@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),  # login/logout
+    path('signup/', include('home.urls')),  # nebo přímo ve views
+    path('', lambda request: redirect('login')),
+    path('home/', include('home.urls')),
 ]
+
 

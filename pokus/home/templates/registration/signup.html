@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Registrace{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="text-center mb-4">Registrace nového uživatele</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Uživatelské jméno -->
+        <div class="form-row">
+            <label for="id_username">Uživatelské jméno:</label>
+            {{ form.username }}
+        </div>
+        {% if form.username.errors %}
+            <div class="text-danger small">{{ form.username.errors }}</div>
+        {% endif %}
+
+        <!-- Heslo -->
+        <div class="form-row">
+            <label for="id_password1">Heslo:</label>
+            {{ form.password1 }}
+        </div>
+        {% if form.password1.errors %}
+            <div class="text-danger small">{{ form.password1.errors }}</div>
+        {% endif %}
+        <!-- Instrukce pro heslo -->
+        <div class="password-rules">
+            <ul>
+                <li>Heslo musí obsahovat minimálně 8 znaků</li>
+                <li>Nesmí být příliš jednoduché</li>
+                <li>Nesmí být podobné uživatelskému jménu</li>
+            </ul>
+        </div>
+
+        <!-- Potvrzení hesla -->
+        <div class="form-row">
+            <label for="id_password2">Potvrzení hesla:</label>
+            {{ form.password2 }}
+        </div>
+        {% if form.password2.errors %}
+            <div class="text-danger small">{{ form.password2.errors }}</div>
+        {% endif %}
+
+        <!-- tlačítko -->
+        <button type="submit" class="btn btn-success w-100 mt-3">Registrovat</button>
+    </form>
+
+    <p class="text-center mt-3">
+        Už máte účet? <a href="{% url 'login' %}">Přihlaste se</a>
+    </p>
+</div>
+{% endblock %}
