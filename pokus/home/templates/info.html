@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2> Just informational site </h2>
-    <a href="{% url 'home' %}">Home</a> | <a href="{% url 'info' %}">Info</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Info{% endblock %}
+
+{% block content %}
+<h2>Welcome to Info Page</h2>
+<p>Tady je stránka s informacemi.</p>
+<button onclick="window.location.href='https://www.seznam.cz'">
+    Klikni sem!
+</button>
+{% endblock %}

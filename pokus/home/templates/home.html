@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome home</title>
-</head>
-<body>
-    <h1> What would you like to do now?</h1>
-    <a href="{% url 'home' %}">Home</a> | <a href="{% url 'info' %}">Info</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h2>Welcome to my home page </h2>
+<p>Toto je úvodní stránka projektu</p>
+{% endblock %}

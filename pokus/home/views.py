@@ -5,3 +5,6 @@ def home(request):
 
 def info(request):
     return render(request, 'info.html')
+from django.shortcuts import render
+
+
